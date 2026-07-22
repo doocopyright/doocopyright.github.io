@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOO Media – News Magazine</title>
+    
+    <!-- ===== COPYRIGHT PROTECTION META ===== -->
+    <meta name="copyright" content="DOO Media - All Rights Reserved" />
+    <meta name="author" content="DOO MEDIA GROUP" />
+    <meta name="robots" content="index, follow" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        /* ============================================================
+           ANIMATIONS
+           ============================================================ */
+        
+        /* Fade In */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Scale / Bounce */
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Click Ripple */
+        @keyframes ripple {
+            from {
+                width: 0;
+                height: 0;
+                opacity: 0.6;
+            }
+            to {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+        
+        /* Pulse / Glow */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(139, 164, 217, 0.2);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(139, 164, 217, 0.5);
+                transform: scale(1.02);
+            }
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 5px rgba(139, 164, 217, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(139, 164, 217, 0.6); }
+        }
+        
+        /* Float */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Shimmer */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        /* Rotate */
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotate(-180deg) scale(0.5); }
+            to { opacity: 1; transform: rotate(0) scale(1); }
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Slide */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ============================================================
+           ANIMATION CLASSES
+           ============================================================ */
+        .animate-fadeInDown { animation: fadeInDown 0.6s ease forwards; }
+        .animate-fadeInUp { animation: fadeInUp 0.6s ease forwards; }
+        .animate-fadeIn { animation: fadeIn 0.5s ease forwards; }
+        .animate-fadeInLeft { animation: fadeInLeft 0.6s ease forwards; }
+        .animate-fadeInRight { animation: fadeInRight 0.6s ease forwards; }
+        .animate-scaleIn { animation: scaleIn 0.5s ease forwards; }
+        .animate-bounceIn { animation: bounceIn 0.6s ease forwards; }
+        .animate-pop { animation: pop 0.3s ease; }
+        .animate-pulse { animation: pulse 2s ease-in-out infinite; }
+        .animate-pulseGlow { animation: pulseGlow 2s ease-in-out infinite; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-rotateIn { animation: rotateIn 0.6s ease forwards; }
+        .animate-slideUp { animation: slideUp 0.6s ease forwards; }
+        .animate-slideDown { animation: slideDown 0.6s ease forwards; }
+        .animate-glowPulse { animation: glowPulse 2s ease-in-out infinite; }
+        
+        /* Stagger delays */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+        
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: #ffffff;
+            color: #555;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ============================================================
+           RIPPLE EFFECT FOR CLICKS
+           ============================================================ */
+        .ripple-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(139, 164, 217, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s ease-out forwards;
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        /* ============================================================
+           WATERMARK FOR CARD IMAGES
+           ============================================================ */
+        .card-image {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0f2f5 0%, #e8eaef 100%);
+            margin-bottom: 18px;
+            border-radius: 4px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+        
+        .card:hover .card-image {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-image::after {
+            content: '© DOO Media';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            font-weight: 700;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 14px;
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 10;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        /* ============================================================
+           WATERMARK FOR DETAIL IMAGES
+           ============================================================ */
+        .detail-image {
+            width: 100%;
+            background: linear-gradient(135deg, #f0f2f5 0%, #e8eaef 100%);
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-radius: 4px;
+            padding: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .detail-image:hover {
+            transform: scale(1.01);
+        }
+        
+        .detail-image img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 2px;
+        }
+        
+        .detail-image::after {
+            content: '© DOO Media - All Rights Reserved';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 14px;
+            font-weight: 700;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 8px 20px;
+            border-radius: 6px;
+            pointer-events: none;
+            z-index: 10;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* ============================================================
+           HEADER WITH LOGO
+           ============================================================ */
+        .site-header {
+            background: linear-gradient(135deg, #0d0f1a 0%, #1a1d30 100%);
+            color: #fff;
+            padding: 20px 0;
+            border-bottom: 3px solid #8ba4d9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .site-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(139,164,217,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8ba4d9, #5a7cb8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            color: #0d0f1a;
+            font-family: 'Merriweather', serif;
+            box-shadow: 0 4px 15px rgba(139,164,217,0.3);
+            flex-shrink: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        
+        .logo-icon:hover {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 8px 30px rgba(139,164,217,0.5);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+            color: #fff;
+            line-height: 1.2;
+        }
+        
+        .logo h1 span {
+            color: #8ba4d9;
+            transition: text-shadow 0.3s ease;
+        }
+        
+        .logo h1:hover span {
+            text-shadow: 0 0 30px rgba(139, 164, 217, 0.3);
+        }
+        
+        .logo-slogan {
+            font-size: 0.7rem;
+            color: #8ba4d9;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .logo-slogan .sep {
+            color: #4a5a7a;
+            margin: 0 5px;
+        }
+        
+        .logo .tagline {
+            font-size: 0.75rem;
+            color: #b0b4c8;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+        
+        .nav-links a {
+            color: #d0d4e0;
+            transition: color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #8ba4d9;
+            transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a:active {
+            transform: scale(0.95);
+        }
+        
+        .nav-links .active {
+            color: #fff;
+        }
+        
+        /* ============================================================
+           MAIN CONTENT
+           ============================================================ */
+        .main-content {
+            padding: 48px 0 56px;
+        }
+        
+        .section-title {
+            font-family: 'Merriweather', Georgia, serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #0d0f1a;
+            margin-bottom: 36px;
+            letter-spacing: -0.3px;
+            border-left: 5px solid #2b5c9b;
+            padding-left: 18px;
+            position: relative;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(180deg, #2b5c9b, #8ba4d9);
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        
+        .section-title small {
+            font-weight: 400;
+            font-size: 1rem;
+            color: #999;
+            margin-left: 10px;
+        }
+        
+        /* ============================================================
+           ARTICLES GRID
+           ============================================================ */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            padding: 25px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #2b5c9b, #8ba4d9, #2b5c9b);
+            background-size: 200% 100%;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+            animation: shimmer 2s linear infinite;
+        }
+        
+        .card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-6px);
+            border-color: #8ba4d9;
+        }
+        
+        .card:active {
+            transform: scale(0.97) translateY(-2px);
+            transition-duration: 0.1s;
+        }
+        
+        .card-title {
+            font-family: 'Merriweather', Georgia, serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #2b5c9b;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .card-title a {
+            color: #2b5c9b;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .card-title a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2b5c9b;
+            transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-title a:hover::after {
+            width: 100%;
+        }
+        
+        .card-title a:hover {
+            color: #1a3f6e;
+        }
+        
+        .card-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            flex: 1;
+        }
+        
+        .card-divider {
+            margin: 18px 0 0;
+            border: 0;
+            height: 1px;
+            background: #e5e5e5;
+            width: 100%;
+        }
+        
+        /* ============================================================
+           DETAIL PAGE
+           ============================================================ */
+        .detail-page {
+            display: none;
+            padding: 40px 0 60px;
+        }
+        
+        .detail-page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .detail-article .back-link {
+            display: inline-block;
+            margin-bottom: 28px;
+            font-weight: 500;
+            color: #2b5c9b;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .detail-article .back-link i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .detail-article .back-link:hover {
+            color: #1a3f6e;
+            transform: translateX(-5px);
+        }
+        
+        .detail-article .back-link:hover i {
+            transform: translateX(-5px);
+        }
+        
+        .detail-article .back-link:active {
+            transform: scale(0.95);
+        }
+        
+        .detail-article .article-header h1 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0d0f1a;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        .detail-article .article-meta {
+            font-size: 0.9rem;
+            color: #999;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .detail-article .article-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+        
+        .detail-article .article-meta span:hover {
+            color: #2b5c9b;
+        }
+        
+        .detail-article .article-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #444;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .detail-article .article-body p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .detail-article .article-body strong {
+            color: #0d0f1a;
+        }
+        
+        /* ============================================================
+           SIDEBAR
+           ============================================================ */
+        .detail-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .sidebar-block {
+            background: #f9fafc;
+            padding: 24px 20px;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .sidebar-block:hover {
+            border-color: #8ba4d9;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+        
+        .sidebar-block h3 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0d0f1a;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2b5c9b;
+            display: inline-block;
+            transition: border-color 0.3s ease;
+        }
+        
+        .sidebar-block:hover h3 {
+            border-color: #8ba4d9;
+        }
+        
+        .sidebar-block .brand-desc {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .sidebar-block ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar-block ul li {
+            padding: 6px 0;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-block ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar-block ul li a {
+            color: #2b5c9b;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .sidebar-block ul li:hover {
+            padding-left: 10px;
+            border-bottom-color: #8ba4d9;
+        }
+        
+        .sidebar-block ul li:hover a {
+            color: #1a3f6e;
+            transform: translateX(5px);
+        }
+        
+        /* ============================================================
+           CONTACT - ONLY GMAIL & X
+           ============================================================ */
+        .contact-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .contact-section .section-title {
+            margin-bottom: 24px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            font-size: 1rem;
+            color: #444;
+        }
+        
+        .contact-info .item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        
+        .contact-info .item:hover {
+            background: #f0f2f5;
+            transform: translateX(5px);
+        }
+        
+        .contact-info .item i {
+            width: 24px;
+            color: #2b5c9b;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-info .item:hover i {
+            transform: scale(1.2) rotate(-10deg);
+        }
+        
+        .contact-info .item a {
+            color: #2b5c9b;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info .item a:hover {
+            color: #1a3f6e;
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 6px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #f0f2f5;
+            color: #0d0f1a;
+            font-size: 1.3rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+        }
+        
+        .social-links a:hover {
+            background: #0d0f1a;
+            color: #fff;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #8ba4d9;
+        }
+        
+        .social-links a:active {
+            transform: scale(0.9);
+        }
+        
+        .contact-note {
+            color: #999;
+            font-size: 0.95rem;
+            padding: 20px;
+            background: #f9fafc;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-note:hover {
+            border-color: #8ba4d9;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        
+        .contact-note i {
+            color: #2b5c9b;
+            margin-right: 8px;
+        }
+        
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .site-footer {
+            background-color: #0d0f1a;
+            color: #d0d4e0;
+            padding: 28px 0 20px;
+            margin-top: 16px;
+        }
+        
+        .footer-divider {
+            border: 0;
+            height: 1px;
+            background: #2a2e42;
+            margin-bottom: 20px;
+        }
+        
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-copy {
+            color: #b0b4c8;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-copy:hover {
+            color: #fff;
+        }
+        
+        .footer-copy strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .footer-policy a {
+            color: #b0b4c8;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            position: relative;
+        }
+        
+        .footer-policy a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #8ba4d9;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-policy a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-policy a:hover {
+            color: #fff;
+        }
+        
+        .footer-policy .sep {
+            color: #3a3e56;
+            margin: 0 10px;
+        }
+        
+        .footer-dmca {
+            display: inline-block;
+            padding: 2px 12px;
+            background: rgba(139, 164, 217, 0.1);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(139, 164, 217, 0.2);
+            color: #8ba4d9;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-dmca:hover {
+            background: rgba(139, 164, 217, 0.2);
+            border-color: #8ba4d9;
+        }
+        
+        /* ============================================================
+           COPYRIGHT BAR
+           ============================================================ */
+        .copyright-bar {
+            background: #0d0f1a;
+            color: #8ba4d9;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            border-top: 2px solid #1e2233;
+        }
+        
+        .copyright-bar strong {
+            color: #fff;
+        }
+        
+        .copyright-bar .dmca-badge {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 2px 12px;
+            background: rgba(139, 164, 217, 0.1);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(139, 164, 217, 0.2);
+            color: #8ba4d9;
+            transition: all 0.3s ease;
+        }
+        
+        .copyright-bar .dmca-badge:hover {
+            background: rgba(139, 164, 217, 0.2);
+        }
+        
+        /* ============================================================
+           FULL COPYRIGHT FOOTER
+           ============================================================ */
+        .full-copyright {
+            background: #0a0c15;
+            color: #8ba4d9;
+            padding: 14px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid #1a1d30;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            transition: background 0.3s ease;
+        }
+        
+        .full-copyright:hover {
+            background: #0d0f1a;
+        }
+        
+        .full-copyright strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        
+        .full-copyright .sep-dot {
+            color: #3a3e56;
+            margin: 0 8px;
+        }
+        
+        .full-copyright .all-rights {
+            color: #6a6f8a;
+            font-weight: 300;
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 992px) {
+            .articles-grid {
+                gap: 30px;
+            }
+            .detail-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 16px 22px;
+                font-size: 0.9rem;
+            }
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .logo-slogan {
+                font-size: 0.6rem;
+                letter-spacing: 2px;
+            }
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-policy .sep {
+                display: none;
+            }
+            .footer-policy a {
+                display: inline-block;
+                margin: 0 8px;
+            }
+            .detail-article .article-header h1 {
+                font-size: 1.7rem;
+            }
+            .card-image::after {
+                font-size: 10px;
+                padding: 3px 10px;
+                bottom: 6px;
+                right: 6px;
+            }
+            .detail-image::after {
+                font-size: 11px;
+                padding: 5px 12px;
+                bottom: 12px;
+                right: 12px;
+            }
+            .full-copyright {
+                font-size: 0.75rem;
+                padding: 10px 0;
+            }
+            .full-copyright .sep-dot {
+                margin: 0 4px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+            .card {
+                padding: 18px;
+            }
+            .card-title {
+                font-size: 1.1rem;
+            }
+            .nav-links {
+                gap: 12px 16px;
+                font-size: 0.85rem;
+            }
+            .card-image::after {
+                font-size: 8px;
+                padding: 2px 8px;
+            }
+            .detail-image::after {
+                font-size: 9px;
+                padding: 4px 10px;
+                bottom: 8px;
+                right: 8px;
+            }
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .full-copyright {
+                font-size: 0.7rem;
+                padding: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ HEADER WITH LOGO ═══ -->
+    <header class="site-header animate-fadeInDown">
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-main">
+                    <div class="logo-icon">DO</div>
+                    <div class="logo-text">
+                        <h1><span>DOO</span> Media</h1>
+                        <div class="logo-slogan">
+                            CONNECT <span class="sep">◆</span> CREATE <span class="sep">◆</span> GROW
+                        </div>
+                    </div>
+                </div>
+                <div class="tagline">Intellectual Property News &amp; Analysis</div>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active" data-page="home">Home</a>
+                <a href="#" data-page="home">World</a>
+                <a href="#" data-page="home">Business</a>
+                <a href="#" data-page="home">Technology</a>
+                <a href="#" data-page="home">Legal</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ═══ HOME PAGE ═══ -->
+    <main class="main-content" id="homePage">
+        <div class="container">
+            <h2 class="section-title animate-fadeInLeft">
+                Featured Articles
+                <small>— news &amp; analysis</small>
+            </h2>
+            <div class="articles-grid" id="articleGrid">
+                <!-- Cards will be generated by JavaScript -->
+            </div>
+
+            <!-- Contact section (only Gmail and X) -->
+            <section class="contact-section animate-fadeInUp delay-3">
+                <h2 class="section-title animate-fadeInLeft">Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="item animate-fadeInUp delay-1">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:copyright.doomedia@gmail.com">copyright.doomedia@gmail.com</a>
+                        </div>
+                        <div class="item animate-fadeInUp delay-2">
+                            <i class="fab fa-x-twitter"></i>
+                            <a href="https://x.com/doomediainc?s=21" target="_blank" rel="noopener noreferrer">@doomediainc</a>
+                        </div>
+                        <div class="social-links animate-fadeInUp delay-3">
+                            <a href="https://x.com/doomediainc?s=21" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="mailto:copyright.doomedia@gmail.com" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-note animate-fadeInUp delay-4">
+                        <p><i class="fas fa-shield-alt"></i> All content and images on DOO Media are copyright protected.</p>
+                        <p style="margin-top:8px; font-size:0.9rem; color:#aaa;">
+                            <i class="fas fa-copyright"></i> All Rights Reserved
+                        </p>
+                        <p style="margin-top:8px; font-size:0.85rem; color:#bbb;">
+                            <i class="fas fa-info-circle"></i> Responses and support via email or X (Twitter)
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ═══ DETAIL PAGE (hidden) ═══ -->
+    <div class="detail-page" id="detailPage">
+        <div class="container">
+            <div class="detail-layout">
+                <!-- Left column: article -->
+                <div class="detail-article">
+                    <a href="#" class="back-link" id="backToHome"><i class="fas fa-arrow-left"></i> Back to News</a>
+                    <!-- Article image -->
+                    <div class="detail-image animate-scaleIn">
+                        <img id="detailImage" src="" alt="Article" />
+                    </div>
+                    <div class="article-header">
+                        <h1 id="detailTitle">Article Title</h1>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar-alt"></i> <span id="detailDate">Date</span></span>
+                            <span><i class="far fa-user"></i> <span id="detailAuthor">Author</span></span>
+                            <span><i class="fas fa-copyright"></i> DOO Media</span>
+                        </div>
+                    </div>
+                    <div class="article-body" id="detailBody">
+                        <p>Article content will be displayed here.</p>
+                    </div>
+                </div>
+
+                <!-- Right column: Sidebar -->
+                <aside class="detail-sidebar">
+                    <div class="sidebar-block animate-fadeInRight delay-1">
+                        <h3>DOO Media</h3>
+                        <div class="brand-desc">
+                            <strong>Intellectual Property News &amp; Analysis</strong><br />
+                            DOO Media is a leading media channel specializing in global Intellectual Property news and analysis.
+                        </div>
+                        <div style="margin-top:12px; padding-top:12px; border-top:1px solid #eee; font-size:0.85rem; color:#888;">
+                            <i class="fas fa-shield-alt" style="color:#2b5c9b;"></i> 
+                            <strong>Copyright Protection:</strong> All images and content are protected. Copying and reuse in any form is strictly prohibited.
+                        </div>
+                        <div style="margin-top:10px; font-size:0.8rem; color:#999;">
+                            <i class="fas fa-copyright"></i> DOO Media - All Rights Reserved
+                        </div>
+                    </div>
+                    <div class="sidebar-block animate-fadeInRight delay-2">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Topics</a></li>
+                            <li><a href="#">Authors</a></li>
+                            <li><a href="#">News Feed</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block animate-fadeInRight delay-3">
+                        <h3>Main Topics</h3>
+                        <ul>
+                            <li><a href="#">Antitrust &amp; Competition</a></li>
+                            <li><a href="#">Intellectual Property</a></li>
+                            <li><a href="#">Corporate Governance</a></li>
+                            <li><a href="#">Appeals &amp; Arbitration</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block animate-fadeInRight delay-4">
+                        <h3>Contact</h3>
+                        <div style="display:flex; flex-direction:column; gap:10px;">
+                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:#444;">
+                                <i class="fas fa-envelope" style="color:#2b5c9b; width:20px;"></i>
+                                <a href="mailto:copyright.doomedia@gmail.com" style="color:#2b5c9b; word-break:break-all;">copyright.doomedia@gmail.com</a>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:#444;">
+                                <i class="fab fa-x-twitter" style="color:#2b5c9b; width:20px;"></i>
+                                <a href="https://x.com/doomediainc?s=21" target="_blank" rel="noopener noreferrer" style="color:#2b5c9b;">@doomediainc</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="site-footer animate-fadeInUp">
+        <div class="container">
+            <hr class="footer-divider" />
+            <div class="footer-inner">
+                <div class="footer-copy">
+                    &copy; 2026 <strong>DOO Media</strong> - All Rights Reserved
+                    <span class="footer-dmca" style="margin-left:10px;">
+                        <i class="fas fa-shield-alt"></i> DMCA Protected
+                    </span>
+                </div>
+                <div class="footer-policy">
+                    <a href="#">Privacy Policy</a>
+                    <span class="sep">|</span>
+                    <a href="#">Terms of Use</a>
+                    <span class="sep">|</span>
+                    <a href="mailto:copyright.doomedia@gmail.com" style="color:#8ba4d9;">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== COPYRIGHT BAR ===== -->
+    <div class="copyright-bar animate-fadeIn">
+        <div class="container">
+            <strong>© DOO Media</strong> — All content and images are copyright protected. 
+            <span class="dmca-badge"><i class="fas fa-shield-alt"></i> DMCA Protected</span>
+            Copying and reuse in any form is strictly prohibited.
+        </div>
+    </div>
+
+    <!-- ===== FULL COPYRIGHT FOOTER ===== -->
+    <div class="full-copyright animate-fadeInUp">
+        <div class="container">
+            <strong>© 1997-2026</strong>
+            <span class="sep-dot">◆</span>
+            <strong>Doo Media</strong>
+            <span class="sep-dot">|</span>
+            <span class="all-rights">All rights reserved by Doo Media</span>
+            <span class="sep-dot">|</span>
+            <span style="color:#6a6f8a; font-size:0.75rem;">
+                <i class="fas fa-shield-alt" style="color:#8ba4d9;"></i> All Rights Reserved
+            </span>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // 1. ARTICLE DATA (13 ARTICLES)
+        // ============================================================
+        const articles = [{
+            id: 1,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1517879616755470528/1528794746762563744/IMG_1784562340574_1784563456926.jpg?ex=6a5f988f&is=6a5e470f&hm=cb762d4bdf75c1011b1d3ff0a485fc9b14fac55f67d0af0ca08e6823d37a93c2&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 2,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1517879616755470528/1528794730853437461/IMG_1784562340610_1784563457766.jpg?ex=6a5f988b&is=6a5e470b&hm=507c264d99fad87bd6278d50a04131d68c1df92306ca79cb846a64f955e90d9a&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 3,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1517879616755470528/1528794724465639605/IMG_1784562340597_1784563457405.jpg?ex=6a5f9889&is=6a5e4709&hm=4dff26f6058c3ab3d9c38a0cca17bcf103f6f222559cdcb8eebafff1984e0c47&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 4,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1517879616755470528/1528794719092474008/IMG_1784562340622_1784563458065.jpg?ex=6a5f9888&is=6a5e4708&hm=d336ad0b32d5cd22209719c3d2e366f727c49089c34dc4cc8f4e3505242907ab&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 5,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1528687820770770957/1529053334475116634/IMG_1784621638773_1784625111666.jpg?ex=6a608963&is=6a5f37e3&hm=c166e01da8f0b61452bf665f56eb76a00ba9969a2ff8aa152a99e4b0c59e3018&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 6,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1526280351494701127/1529125339165364285/IMG_0991.jpg?ex=6a60cc72&is=6a5f7af2&hm=6c834a568845563ac500e8eee9cb2731c2497d259d25c23cfbb492cbd314628a&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 7,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1526921214193434725/1529247853984219206/IMG_1017.jpg?ex=6a613e8c&is=6a5fed0c&hm=a8a6a40f986dce53fdca4a6b0170231b22bf4e05a0c8a5c74a94f37e1780fa63&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 8,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1526921214193434725/1529246909800251453/IMG_1023.jpg?ex=6a613dab&is=6a5fec2b&hm=5310e79120feb51eee358254ad8908e2c8c1c10fb8f3f6b2e23f9c667e0c2e57&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 9,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1526921214193434725/1529246903160803509/IMG_1022.jpg?ex=6a613da9&is=6a5fec29&hm=b17f1beb6f0e93f1adb0a4ae396404c16d4eaeda5ecfec2b5123136ae6093d58&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 10,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1526921214193434725/1529246559018156103/IMG_1020.jpg?ex=6a613d57&is=6a5febd7&hm=4b61506abc9b19622db9c465a9749880ae963cab7bdf1582713acb276ebab4de&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 11,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1526921214193434725/1529246554966458449/IMG_1019.jpg?ex=6a613d56&is=6a5febd6&hm=cd3c67836e9350b1d8a43c69854ca8583228560f8ea6b37b783c28b77c9eff59&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 12,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://cdn.discordapp.com/attachments/1526921214193434725/1529246551124213800/IMG_1018.jpg?ex=6a613d55&is=6a5febd5&hm=5273cf97150e8714dcc9c25291a9236f60db3255758ee5b02e51ca3d8c9c7d17&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }, {
+            id: 13,
+            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
+            date: 'JUNE 24, 2026',
+            author: 'DOO MEDIA GROUP',
+            image: 'https://media.discordapp.net/attachments/1526921214193434725/1529246799062372362/FDownloader.Net_AQMecKqpgpHJovod3SGpdM82B67tmMGgZXnCzQjt4okn6xeBHZkDLP812CbTGz2R5s9eWzDuACub5qlH6QmQ6s2FgOAr3qsq9mzGsMJ_Rg_360p_SD.mov?ex=6a613d90&is=6a5fec10&hm=bb77acdae80672045cddf7bff0a7a763d38afc6f734c5b7b5307c866c3bf227f&',
+            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
+            fullContent: `
+                <p><strong>This Content Right owner "DOO Media"</strong></p>
+                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
+                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
+                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
+            `
+        }];
+
+        // ============================================================
+        // 2. DOM REFS
+        // ============================================================
+        const homePage = document.getElementById('homePage');
+        const detailPage = document.getElementById('detailPage');
+        const articleGrid = document.getElementById('articleGrid');
+        const detailImage = document.getElementById('detailImage');
+        const detailTitle = document.getElementById('detailTitle');
+        const detailDate = document.getElementById('detailDate');
+        const detailAuthor = document.getElementById('detailAuthor');
+        const detailBody = document.getElementById('detailBody');
+        const backLink = document.getElementById('backToHome');
+
+        // ============================================================
+        // 3. RIPPLE EFFECT
+        // ============================================================
+        function createRipple(e, element) {
+            const rect = element.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple-effect';
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            element.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        // Apply ripple to clickable elements
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('.card, .nav-links a, .social-links a, .back-link, .footer-policy a');
+            if (target) {
+                createRipple(e, target);
+                // Pop animation
+                target.style.animation = 'none';
+                requestAnimationFrame(() => {
+                    target.style.animation = 'pop 0.3s ease';
+                });
+            }
+        });
+
+        // ============================================================
+        // 4. RENDER ARTICLES
+        // ============================================================
+        function renderArticles() {
+            articleGrid.innerHTML = '';
+            articles.forEach((art, index) => {
+                const card = document.createElement('article');
+                card.className = 'card animate-fadeInUp';
+                card.style.animationDelay = (index * 0.1) + 's';
+                card.dataset.id = art.id;
+                card.innerHTML = `
+                    <div class="card-image">
+                        <img src="${art.image}" alt="${art.title}" loading="lazy" />
+                    </div>
+                    <h3 class="card-title"><a href="#" data-id="${art.id}">${art.title}</a></h3>
+                    <div class="card-description">${art.excerpt}</div>
+                    <hr class="card-divider" />
+                `;
+                articleGrid.appendChild(card);
+            });
+
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('a')) return;
+                    const id = parseInt(this.dataset.id);
+                    if (!isNaN(id)) {
+                        window.location.hash = 'post-' + id;
+                    }
+                });
+            });
+
+            document.querySelectorAll('.card-title a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const id = parseInt(this.dataset.id);
+                    if (!isNaN(id)) {
+                        window.location.hash = 'post-' + id;
+                    }
+                });
+            });
+        }
+
+        // ============================================================
+        // 5. SHOW DETAIL
+        // ============================================================
+        function showDetail(id) {
+            const article = articles.find(a => a.id === id);
+            if (!article) return;
+
+            detailImage.src = article.image;
+            detailImage.alt = article.title;
+            detailTitle.textContent = article.title;
+            detailDate.textContent = article.date;
+            detailAuthor.textContent = article.author;
+            detailBody.innerHTML = article.fullContent;
+
+            homePage.style.display = 'none';
+            detailPage.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ============================================================
+        // 6. GO HOME
+        // ============================================================
+        function goHome() {
+            homePage.style.display = 'block';
+            detailPage.classList.remove('active');
+            window.location.hash = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ============================================================
+        // 7. HASH CHANGE
+        // ============================================================
+        function handleHash() {
+            const hash = window.location.hash;
+            if (hash.startsWith('#post-')) {
+                const id = parseInt(hash.replace('#post-', ''));
+                if (!isNaN(id) && articles.some(a => a.id === id)) {
+                    showDetail(id);
+                } else {
+                    goHome();
+                }
+            } else {
+                goHome();
+            }
+        }
+
+        // ============================================================
+        // 8. EVENTS
+        // ============================================================
+        window.addEventListener('hashchange', handleHash);
+
+        backLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            goHome();
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.dataset.page === 'home') {
+                    e.preventDefault();
+                    goHome();
+                }
+            });
+        });
+
+        // ============================================================
+        // 9. INIT
+        // ============================================================
+        renderArticles();
+
+        if (window.location.hash) {
+            handleHash();
+        } else {
+            homePage.style.display = 'block';
+            detailPage.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
