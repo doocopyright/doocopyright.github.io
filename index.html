@@ -1804,7 +1804,7 @@
 
     <script>
         // ============================================================
-        // BẢO VỆ SOURCE CODE - CHỐNG VIEW SOURCE (KHÔNG CẢNH BÁO)
+        // BẢO VỆ SOURCE CODE - CHỈ CHỐNG LỘ SOURCE
         // ============================================================
         
         // 1. Cấm click chuột phải (không cảnh báo)
@@ -1813,44 +1813,22 @@
             return false;
         });
 
-        // 2. Cấm phím tắt xem source (Ctrl+U, F12, Ctrl+Shift+I) - không cảnh báo
+        // 2. Cấm phím tắt xem source (Ctrl+U) - KHÔNG CẤM F12
         document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I')) {
+            // Chỉ cấm Ctrl+U (view source)
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
                 e.preventDefault();
                 return false;
             }
-            if (e.key === 'F12') {
-                e.preventDefault();
-                return false;
-            }
-            if (e.ctrlKey && e.shiftKey && (e.key === 'c' || e.key === 'C')) {
-                e.preventDefault();
-                return false;
-            }
-            if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
-                e.preventDefault();
-                return false;
-            }
+            // KHÔNG CẤM F12
+            // KHÔNG CẤM Ctrl+Shift+I
+            // KHÔNG CẤM Ctrl+S
+            // KHÔNG CẤM Ctrl+Shift+C
         });
 
-        // 3. Cấm kéo thả (không cảnh báo)
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        // 4. Cấm copy (không cảnh báo)
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        // 5. Cấm chụp màn hình (không cảnh báo)
-        document.addEventListener('keyup', function(e) {
-            if (e.key === 'PrintScreen') {
-                return false;
-            }
-        });
+        // KHÔNG CẤM KÉO THẢ
+        // KHÔNG CẤM COPY
+        // KHÔNG CẤM CHỤP MÀN HÌNH
 
         // ============================================================
         // 1. ARTICLE DATA - 9 ARTICLES
