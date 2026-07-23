@@ -2005,11 +2005,29 @@
         const logoHome = document.getElementById('logoHome');
 
         // ============================================================
-        // 3. PAGINATION
+        // 3. PAGINATION WITH URL PARAMETER
         // ============================================================
         const POSTS_PER_PAGE = 8;
         let currentPage = 1;
         let totalPages = Math.ceil(articles.length / POSTS_PER_PAGE);
+
+        // Get page from URL parameter
+        function getPageFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const page = parseInt(urlParams.get('page'));
+            return (page && page >= 1 && page <= totalPages) ? page : 1;
+        }
+
+        // Update URL without reload
+        function updateURLPage(page) {
+            const url = new URL(window.location);
+            if (page === 1) {
+                url.searchParams.delete('page');
+            } else {
+                url.searchParams.set('page', page);
+            }
+            window.history.pushState({ page: page }, '', url);
+        }
 
         function renderArticlesPage(page) {
             const start = (page - 1) * POSTS_PER_PAGE;
@@ -2055,6 +2073,7 @@
             });
 
             renderPagination(page);
+            updateURLPage(page);
         }
 
         function renderPagination(current) {
@@ -2073,7 +2092,7 @@
             });
             paginationEl.appendChild(prevBtn);
 
-            // Page numbers
+            // Page numbers with links
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
                 btn.textContent = i;
@@ -2132,8 +2151,10 @@
                 currentPageView = 'home';
                 currentArticleId = null;
                 document.getElementById('navHome').classList.add('active');
+                const pageFromURL = getPageFromURL();
+                currentPage = pageFromURL;
                 renderArticlesPage(currentPage);
-                window.location.hash = '';
+                // Don't update URL here to avoid loop
             } else if (page === 'terms') {
                 termsPage.classList.add('active');
                 currentPageView = 'terms';
@@ -2167,16 +2188,26 @@
             });
         });
 
-        document.getElementById('navHome').addEventListener('click', function(e) {
-            e.preventDefault();
-            showPage('home');
-        });
-
         // ============================================================
-        // 5. LOGO CLICK - GO HOME
+        // 5. LOGO CLICK - GO HOME (Trang 1)
         // ============================================================
         logoHome.addEventListener('click', function(e) {
             e.preventDefault();
+            // Reset về trang 1
+            currentPage = 1;
+            // Xóa parameter page trong URL
+            const url = new URL(window.location);
+            url.searchParams.delete('page');
+            window.history.pushState({ page: 1 }, '', url);
+            showPage('home');
+        });
+
+        document.getElementById('navHome').addEventListener('click', function(e) {
+            e.preventDefault();
+            currentPage = 1;
+            const url = new URL(window.location);
+            url.searchParams.delete('page');
+            window.history.pushState({ page: 1 }, '', url);
             showPage('home');
         });
 
@@ -2244,6 +2275,11 @@
         // ============================================================
         backLink.addEventListener('click', function(e) {
             e.preventDefault();
+            // Về trang 1 khi back từ bài viết
+            currentPage = 1;
+            const url = new URL(window.location);
+            url.searchParams.delete('page');
+            window.history.pushState({ page: 1 }, '', url);
             showPage('home');
         });
 
@@ -2290,12 +2326,31 @@
             } else if (hash === '#privacy') {
                 showPage('privacy');
             } else if (hash === '' || hash === '#') {
+                // Khi hash rỗng, về home với page từ URL
+                const pageFromURL = getPageFromURL();
+                currentPage = pageFromURL;
                 showPage('home');
             }
         });
 
         // ============================================================
-        // 11. INIT
+        // 11. POPSTATE - Handle back/forward browser buttons
+        // ============================================================
+        window.addEventListener('popstate', function(e) {
+            const pageFromURL = getPageFromURL();
+            if (pageFromURL !== currentPage) {
+                currentPage = pageFromURL;
+                // Nếu đang ở home thì render trang mới
+                if (currentPageView === 'home' || currentPageView === 'home') {
+                    renderArticlesPage(currentPage);
+                } else {
+                    showPage('home');
+                }
+            }
+        });
+
+        // ============================================================
+        // 12. INIT
         // ============================================================
         function init() {
             const hash = window.location.hash;
@@ -2312,6 +2367,10 @@
                 showPage('privacy');
                 return;
             }
+            
+            // Lấy page từ URL
+            const pageFromURL = getPageFromURL();
+            currentPage = pageFromURL;
             showPage('home');
         }
 
@@ -2321,12 +2380,15 @@
             init();
         }
 
+        // Fix for out app browser
         setTimeout(function() {
             if (document.querySelector('.page-container') && !homePage.style.display) {
                 if (homePage.style.display === '' || homePage.style.display === 'none') {
                     if (!detailPage.classList.contains('active') && 
                         !termsPage.classList.contains('active') && 
                         !privacyPage.classList.contains('active')) {
+                        const pageFromURL = getPageFromURL();
+                        currentPage = pageFromURL;
                         showPage('home');
                     }
                 }
