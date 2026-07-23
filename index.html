@@ -419,6 +419,206 @@
         }
         
         /* ============================================================
+           ABOUT PAGE
+           ============================================================ */
+        .about-page {
+            display: none;
+        }
+        
+        .about-page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .about-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .about-header h1 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #0d0f1a;
+            margin-bottom: 8px;
+        }
+        
+        .about-header .about-meta {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .about-header .about-meta span {
+            margin: 0 10px;
+            color: #ddd;
+        }
+        
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about-content h2 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0d0f1a;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e5e5;
+        }
+        
+        .about-content h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        .about-content h2 i {
+            color: #2b5c9b;
+            margin-right: 10px;
+        }
+        
+        .about-content h3 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #2b5c9b;
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .about-content p {
+            margin-bottom: 16px;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .about-content ul {
+            margin: 12px 0 20px 24px;
+            list-style: none;
+        }
+        
+        .about-content ul li {
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .about-content ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #2b5c9b;
+            font-size: 0.8rem;
+        }
+        
+        .about-content .highlight-box {
+            background: #f0f4fa;
+            border-left: 4px solid #2b5c9b;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .about-content .highlight-box i {
+            color: #2b5c9b;
+            margin-right: 8px;
+        }
+        
+        .about-content .highlight-box strong {
+            color: #0d0f1a;
+        }
+        
+        .about-content .about-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .about-stat-item {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 24px 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .about-stat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            border-color: #8ba4d9;
+        }
+        
+        .about-stat-item .number {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #2b5c9b;
+            display: block;
+        }
+        
+        .about-stat-item .label {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 4px;
+        }
+        
+        .about-cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .about-cert-item {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .about-cert-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+            border-color: #8ba4d9;
+        }
+        
+        .about-cert-item i {
+            font-size: 2.5rem;
+            color: #2b5c9b;
+            margin-bottom: 12px;
+        }
+        
+        .about-cert-item h4 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0d0f1a;
+            margin-bottom: 4px;
+        }
+        
+        .about-cert-item p {
+            font-size: 0.85rem;
+            color: #999;
+            margin: 0;
+        }
+        
+        /* ============================================================
            LEGAL PAGES
            ============================================================ */
         .legal-page {
@@ -1230,6 +1430,14 @@
                 font-size: 0.8rem;
                 min-width: 36px;
             }
+            .about-stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .about-cert-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 16px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1262,6 +1470,9 @@
                 font-size: 1.6rem;
             }
             .legal-header h1 {
+                font-size: 1.8rem;
+            }
+            .about-header h1 {
                 font-size: 1.8rem;
             }
             .footer-inner {
@@ -1321,6 +1532,17 @@
                 font-size: 0.75rem;
                 padding: 0 8px;
             }
+            .about-stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .about-cert-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .about-stat-item .number {
+                font-size: 1.8rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1359,6 +1581,9 @@
             .legal-header h1 {
                 font-size: 1.5rem;
             }
+            .about-header h1 {
+                font-size: 1.5rem;
+            }
             .legal-content h2 {
                 font-size: 1.2rem;
             }
@@ -1374,6 +1599,23 @@
                 padding: 4px 8px;
                 font-size: 0.7rem;
                 min-width: 28px;
+            }
+            .about-stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .about-cert-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .about-stat-item {
+                padding: 16px 12px;
+            }
+            .about-stat-item .number {
+                font-size: 1.5rem;
+            }
+            .about-content p {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -1397,6 +1639,7 @@
             </div>
             <nav class="nav-links">
                 <a href="#" class="active" data-page="home" id="navHome">Home</a>
+                <a href="#" data-page="about" class="nav-link">About</a>
                 <a href="#" data-page="privacy" class="nav-link">Privacy Policy</a>
                 <a href="#" data-page="terms" class="nav-link">Terms of Use</a>
             </nav>
@@ -1459,6 +1702,159 @@
                         </div>
                     </div>
                 </section>
+            </div>
+        </div>
+
+        <!-- ═══ ABOUT PAGE ═══ -->
+        <div class="page-container about-page" id="aboutPage">
+            <div class="container">
+                <div class="about-header animate-fadeInDown">
+                    <h1>About DOO Media Entertainment</h1>
+                    <div class="about-meta">
+                        <span>Established 1997</span>
+                        <span>|</span>
+                        <span>Tokyo, Japan</span>
+                        <span>|</span>
+                        <span><i class="fas fa-shield-alt"></i> Copyright Protected</span>
+                    </div>
+                </div>
+                <div class="about-content animate-fadeInUp">
+                    <div class="highlight-box">
+                        <p><i class="fas fa-info-circle"></i> <strong>CONNECT · CREATE · GROW</strong></p>
+                        <p style="margin-top:8px;">DOO Media Entertainment is a premier intellectual property news and analysis platform dedicated to protecting creators' rights worldwide. Since 1997, we have been at the forefront of intellectual property advocacy and education.</p>
+                    </div>
+
+                    <h2><i class="fas fa-building"></i> Who We Are</h2>
+                    <p><strong>DOO Media Entertainment</strong> is a leading media and entertainment company with over <strong>25 years</strong> of experience in the industry. Founded in <strong>1997</strong>, we have grown from a small publication into a globally recognized authority in intellectual property news, copyright protection, and media rights management.</p>
+                    <p>Our team consists of experienced legal professionals, journalists, and media experts who are passionate about protecting the rights of creators, artists, and innovators. We believe that intellectual property is the foundation of creativity and innovation, and we are committed to safeguarding it.</p>
+
+                    <h2><i class="fas fa-bullseye"></i> Our Mission &amp; Vision</h2>
+                    <p><strong>Mission:</strong> To provide accurate, timely, and comprehensive news and analysis on intellectual property law, copyright protection, and related legal matters. We strive to educate and empower creators, businesses, and legal professionals to protect their valuable intellectual assets in an increasingly digital world.</p>
+                    <p><strong>Vision:</strong> To be the world's most trusted source of intellectual property news, fostering a culture of respect for creativity and innovation through education, advocacy, and community engagement.</p>
+
+                    <h2><i class="fas fa-star"></i> Our Achievements</h2>
+                    <div class="about-stats-grid">
+                        <div class="about-stat-item">
+                            <span class="number">1997</span>
+                            <span class="label">Year Established</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="number">2,500+</span>
+                            <span class="label">Articles Published</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="number">180+</span>
+                            <span class="label">Countries Reached</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="number">100%</span>
+                            <span class="label">Commitment to Accuracy</span>
+                        </div>
+                    </div>
+
+                    <h2><i class="fas fa-certificate"></i> Certifications &amp; Licenses</h2>
+                    <div class="about-cert-grid">
+                        <div class="about-cert-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>DMCA Protected</h4>
+                            <p>Digital Millennium Copyright Act compliance</p>
+                        </div>
+                        <div class="about-cert-item">
+                            <i class="fas fa-gavel"></i>
+                            <h4>IP Rights Certified</h4>
+                            <p>International Intellectual Property certification</p>
+                        </div>
+                        <div class="about-cert-item">
+                            <i class="fas fa-globe"></i>
+                            <h4>Global Media License</h4>
+                            <p>Licensed for international media operations</p>
+                        </div>
+                        <div class="about-cert-item">
+                            <i class="fas fa-medal"></i>
+                            <h4>Excellence Award 2024</h4>
+                            <p>Recognized for outstanding IP advocacy</p>
+                        </div>
+                        <div class="about-cert-item">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>ISO 27001</h4>
+                            <p>Information security management certified</p>
+                        </div>
+                        <div class="about-cert-item">
+                            <i class="fas fa-award"></i>
+                            <h4>Best Media Platform 2023</h4>
+                            <p>Awarded for excellence in media reporting</p>
+                        </div>
+                    </div>
+
+                    <h2><i class="fas fa-shield-alt"></i> Copyright Protection &amp; Image Rights</h2>
+                    <div class="highlight-box" style="border-left-color: #dc3545;">
+                        <p><i class="fas fa-copyright" style="color:#dc3545;"></i> <strong>ALL IMAGES AND CONTENT ARE PROTECTED UNDER INTERNATIONAL COPYRIGHT LAW</strong></p>
+                        <p style="margin-top:8px;">DOO Media Entertainment strictly enforces its intellectual property rights. Any unauthorized use, reproduction, or distribution of our images, articles, or any content is a violation of copyright law and will result in legal action.</p>
+                    </div>
+                    <ul>
+                        <li><strong>Image Protection Policy:</strong> All images published on DOO Media are protected by digital watermarks, copyright notices, and legal disclaimers.</li>
+                        <li><strong>Content Ownership:</strong> Every article, video, graphic, and logo is the exclusive property of DOO Media Entertainment.</li>
+                        <li><strong>Legal Action:</strong> We actively monitor the internet for unauthorized use of our content and take legal action against infringers.</li>
+                        <li><strong>DMCA Compliance:</strong> We comply with the Digital Millennium Copyright Act and respond to all valid takedown notices.</li>
+                        <li><strong>Licensing:</strong> We offer licensing opportunities for legitimate use of our content. Contact us for permissions.</li>
+                    </ul>
+
+                    <h2><i class="fas fa-trophy"></i> Awards &amp; Recognition</h2>
+                    <ul>
+                        <li><strong>2024 - Excellence in Intellectual Property Advocacy Award</strong> - Recognized for outstanding contributions to IP rights protection.</li>
+                        <li><strong>2023 - Best Media Platform for IP News</strong> - Awarded by the International Media Association.</li>
+                        <li><strong>2022 - Copyright Defender of the Year</strong> - Honored for relentless pursuit of copyright enforcement.</li>
+                        <li><strong>2021 - Global Media Excellence Award</strong> - For exceptional journalism in intellectual property.</li>
+                        <li><strong>2020 - Digital Rights Champion</strong> - Recognized for protecting creators' rights in the digital age.</li>
+                    </ul>
+
+                    <h2><i class="fas fa-gavel"></i> Legal Frameworks &amp; Compliance</h2>
+                    <ul>
+                        <li>Compliant with <strong>DMCA (Digital Millennium Copyright Act)</strong> - United States</li>
+                        <li>Compliant with <strong>EU Copyright Directive</strong> - European Union</li>
+                        <li>Compliant with <strong>Japan Copyright Law</strong> - Japan</li>
+                        <li>Compliant with <strong>Berne Convention</strong> for the Protection of Literary and Artistic Works</li>
+                        <li>Compliant with <strong>WIPO Copyright Treaty</strong> (World Intellectual Property Organization)</li>
+                    </ul>
+
+                    <h2><i class="fas fa-users"></i> Our Core Values</h2>
+                    <ul>
+                        <li><strong>Integrity:</strong> We are committed to accurate, unbiased, and ethical reporting.</li>
+                        <li><strong>Excellence:</strong> We strive for the highest quality in all our content and services.</li>
+                        <li><strong>Innovation:</strong> We embrace new technologies and approaches to inform and educate our audience.</li>
+                        <li><strong>Community:</strong> We believe in building a global community that respects and protects intellectual property.</li>
+                        <li><strong>Transparency:</strong> We are open about our processes, sources, and policies.</li>
+                    </ul>
+
+                    <h2><i class="fas fa-handshake"></i> Why Choose DOO Media Entertainment?</h2>
+                    <ul>
+                        <li><strong>25+ Years of Experience:</strong> Trusted authority in intellectual property since 1997.</li>
+                        <li><strong>Expert Team:</strong> Our team includes legal professionals, journalists, and media experts.</li>
+                        <li><strong>Global Reach:</strong> We serve audiences in over 180 countries worldwide.</li>
+                        <li><strong>Commitment to Quality:</strong> We maintain the highest standards of accuracy and reliability.</li>
+                        <li><strong>Copyright Protection:</strong> We are dedicated to protecting creators' rights and intellectual property.</li>
+                    </ul>
+
+                    <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                    <ul>
+                        <li><strong>Email:</strong> copyright.doomedia@gmail.com</li>
+                        <li><strong>X (Twitter):</strong> <a href="https://x.com/doomediainc?s=21" target="_blank" style="color:#2b5c9b; text-decoration:underline;">@doomediainc</a></li>
+                        <li><strong>Address:</strong> Shibuya City, Tokyo 150-0002, Japan</li>
+                        <li><strong>For Licensing Inquiries:</strong> copyright.doomedia@gmail.com</li>
+                    </ul>
+
+                    <div class="about-date">
+                        <p><strong>Established:</strong> 1997</p>
+                        <p style="margin-top:4px; color:#aaa;">© 1997-2026 DOO Media Entertainment. All Rights Reserved.</p>
+                        <p style="margin-top:4px; color:#aaa; font-size:0.85rem;">
+                            <i class="fas fa-shield-alt"></i> Protected by international copyright laws.
+                        </p>
+                    </div>
+
+                    <a href="#" class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+                        <i class="fas fa-arrow-up"></i> Back to Top
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -1717,6 +2113,7 @@
                             <h3>Navigation</h3>
                             <ul>
                                 <li><a href="#" data-page="home" class="nav-link">Home</a></li>
+                                <li><a href="#" data-page="about" class="nav-link">About</a></li>
                                 <li><a href="#" data-page="terms" class="nav-link">Terms of Use</a></li>
                                 <li><a href="#" data-page="privacy" class="nav-link">Privacy Policy</a></li>
                             </ul>
@@ -1766,6 +2163,8 @@
                     </span>
                 </div>
                 <div class="footer-policy">
+                    <a href="#" data-page="about" class="footer-nav-link">About</a>
+                    <span class="sep">|</span>
                     <a href="#" data-page="privacy" class="footer-nav-link">Privacy Policy</a>
                     <span class="sep">|</span>
                     <a href="#" data-page="terms" class="footer-nav-link">Terms of Use</a>
@@ -1815,20 +2214,11 @@
 
         // 2. Cấm phím tắt xem source (Ctrl+U) - KHÔNG CẤM F12
         document.addEventListener('keydown', function(e) {
-            // Chỉ cấm Ctrl+U (view source)
             if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
                 e.preventDefault();
                 return false;
             }
-            // KHÔNG CẤM F12
-            // KHÔNG CẤM Ctrl+Shift+I
-            // KHÔNG CẤM Ctrl+S
-            // KHÔNG CẤM Ctrl+Shift+C
         });
-
-        // KHÔNG CẤM KÉO THẢ
-        // KHÔNG CẤM COPY
-        // KHÔNG CẤM CHỤP MÀN HÌNH
 
         // ============================================================
         // 1. ARTICLE DATA - 9 ARTICLES
@@ -1938,7 +2328,6 @@
                 <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
             `
         }, {
-            // ===== POST 9 (Gộp 4 ảnh Facebook) =====
             id: 9,
             title: '⚠️ NOTICE: UNAUTHORIZED IMAGE USE BY FACEBOOK PAGE "𝓒12 - 𝓕𝓸𝓻𝓮𝓿𝓮𝓻 𝓦𝓮 𝓢𝓱𝓲𝓷𝓮"',
             date: 'JULY 23, 2026',
@@ -2017,6 +2406,7 @@
         // 2. DOM REFS
         // ============================================================
         const homePage = document.getElementById('homePage');
+        const aboutPage = document.getElementById('aboutPage');
         const termsPage = document.getElementById('termsPage');
         const privacyPage = document.getElementById('privacyPage');
         const detailPage = document.getElementById('detailPage');
@@ -2155,6 +2545,7 @@
 
         function showPage(page, articleId) {
             homePage.style.display = 'none';
+            aboutPage.classList.remove('active');
             termsPage.classList.remove('active');
             privacyPage.classList.remove('active');
             detailPage.classList.remove('active');
@@ -2171,6 +2562,12 @@
                 const pageFromURL = getPageFromURL();
                 currentPage = pageFromURL;
                 renderArticlesPage(currentPage);
+            } else if (page === 'about') {
+                aboutPage.classList.add('active');
+                currentPageView = 'about';
+                currentArticleId = null;
+                document.querySelector('.nav-links a[data-page="about"]')?.classList.add('active');
+                window.location.hash = 'about';
             } else if (page === 'terms') {
                 termsPage.classList.add('active');
                 currentPageView = 'terms';
@@ -2267,6 +2664,7 @@
             detailBody.innerHTML = article.fullContent;
 
             homePage.style.display = 'none';
+            aboutPage.classList.remove('active');
             termsPage.classList.remove('active');
             privacyPage.classList.remove('active');
             detailPage.classList.add('active');
@@ -2330,6 +2728,8 @@
                 if (!isNaN(id) && articles.some(a => a.id === id)) {
                     showPage('detail', id);
                 }
+            } else if (hash === '#about') {
+                showPage('about');
             } else if (hash === '#terms') {
                 showPage('terms');
             } else if (hash === '#privacy') {
@@ -2351,7 +2751,7 @@
                 if (currentPageView === 'home') {
                     renderArticlesPage(currentPage);
                 } else {
-                    showPage('home');
+                    showPage(currentPageView);
                 }
             }
         });
@@ -2367,6 +2767,9 @@
                     showPage('detail', id);
                     return;
                 }
+            } else if (hash === '#about') {
+                showPage('about');
+                return;
             } else if (hash === '#terms') {
                 showPage('terms');
                 return;
@@ -2390,6 +2793,7 @@
             if (document.querySelector('.page-container') && !homePage.style.display) {
                 if (homePage.style.display === '' || homePage.style.display === 'none') {
                     if (!detailPage.classList.contains('active') && 
+                        !aboutPage.classList.contains('active') &&
                         !termsPage.classList.contains('active') && 
                         !privacyPage.classList.contains('active')) {
                         const pageFromURL = getPageFromURL();
