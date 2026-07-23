@@ -2203,22 +2203,35 @@
 
     <script>
         // ============================================================
-        // BẢO VỆ SOURCE CODE - CHỈ CHỐNG LỘ SOURCE
+        // BẢO VỆ SOURCE CODE - CHỈ CẤM VIEW SOURCE & SAVE PAGE
         // ============================================================
         
-        // 1. Cấm click chuột phải (không cảnh báo)
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
+        // CHO PHÉP CHUỘT PHẢI - KHÔNG CHẶN GÌ CẢ
+        // document.addEventListener('contextmenu', function(e) {
+        //     e.preventDefault();
+        //     return false;
+        // }); // ĐÃ XÓA - CHO PHÉP CHUỘT PHẢI
 
-        // 2. Cấm phím tắt xem source (Ctrl+U) - KHÔNG CẤM F12
+        // Cấm phím tắt xem source (Ctrl+U) và Save Page (Ctrl+S)
         document.addEventListener('keydown', function(e) {
+            // Cấm Ctrl+U (view source)
             if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
                 e.preventDefault();
                 return false;
             }
+            // Cấm Ctrl+S (save page)
+            if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+                e.preventDefault();
+                return false;
+            }
+            // KHÔNG CẤM F12
+            // KHÔNG CẤM Ctrl+Shift+I
+            // KHÔNG CẤM Ctrl+Shift+C
         });
+
+        // KHÔNG CẤM KÉO THẢ
+        // KHÔNG CẤM COPY
+        // KHÔNG CẤM CHỤP MÀN HÌNH
 
         // ============================================================
         // 1. ARTICLE DATA - 9 ARTICLES
@@ -2328,6 +2341,7 @@
                 <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
             `
         }, {
+            // ===== POST 9 (Gộp 4 ảnh Facebook) =====
             id: 9,
             title: '⚠️ NOTICE: UNAUTHORIZED IMAGE USE BY FACEBOOK PAGE "𝓒12 - 𝓕𝓸𝓻𝓮𝓿𝓮𝓻 𝓦𝓮 𝓢𝓱𝓲𝓷𝓮"',
             date: 'JULY 23, 2026',
