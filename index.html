@@ -2234,7 +2234,7 @@
         // KHÔNG CẤM CHỤP MÀN HÌNH
 
         // ============================================================
-        // 1. ARTICLE DATA - 10 ARTICLES (9 cũ + 1 mới)
+        // 1. ARTICLE DATA - 10 ARTICLES
         // ============================================================
         const articles = [{
             id: 1,
@@ -2341,7 +2341,6 @@
                 <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
             `
         }, {
-            // ===== POST 9 (Gộp 4 ảnh Facebook - C12) =====
             id: 9,
             title: '⚠️ NOTICE: UNAUTHORIZED IMAGE USE BY FACEBOOK PAGE "𝓒12 - 𝓕𝓸𝓻𝓮𝓿𝓮𝓻 𝓦𝓮 𝓢𝓱𝓲𝓷𝓮"',
             date: 'JULY 23, 2026',
@@ -2704,6 +2703,11 @@
                 const pageFromURL = getPageFromURL();
                 currentPage = pageFromURL;
                 renderArticlesPage(currentPage);
+                
+                // ===== FIX: Remove hash when going to Home =====
+                if (window.location.hash) {
+                    window.history.pushState(null, '', window.location.pathname + window.location.search);
+                }
             } else if (page === 'about') {
                 aboutPage.classList.add('active');
                 currentPageView = 'about';
@@ -2860,7 +2864,7 @@
         });
 
         // ============================================================
-        // 9. HASH CHANGE
+        // 9. HASH CHANGE - FIXED: No jumping to About on F5
         // ============================================================
         window.addEventListener('hashchange', function(e) {
             e.preventDefault();
@@ -2869,6 +2873,9 @@
                 const id = parseInt(hash.replace('#post-', ''));
                 if (!isNaN(id) && articles.some(a => a.id === id)) {
                     showPage('detail', id);
+                } else {
+                    window.location.hash = '';
+                    showPage('home');
                 }
             } else if (hash === '#about') {
                 showPage('about');
@@ -2879,6 +2886,9 @@
             } else if (hash === '' || hash === '#') {
                 const pageFromURL = getPageFromURL();
                 currentPage = pageFromURL;
+                showPage('home');
+            } else {
+                window.location.hash = '';
                 showPage('home');
             }
         });
@@ -2899,25 +2909,28 @@
         });
 
         // ============================================================
-        // 11. INIT
+        // 11. INIT - FIXED: No jumping to About on F5
         // ============================================================
         function init() {
             const hash = window.location.hash;
-            if (hash.startsWith('#post-')) {
+            
+            const validHashes = ['#about', '#terms', '#privacy'];
+            const isPostHash = hash.startsWith('#post-');
+            
+            if (isPostHash) {
                 const id = parseInt(hash.replace('#post-', ''));
                 if (!isNaN(id) && articles.some(a => a.id === id)) {
                     showPage('detail', id);
                     return;
                 }
-            } else if (hash === '#about') {
-                showPage('about');
+            } else if (validHashes.includes(hash)) {
+                const page = hash.replace('#', '');
+                showPage(page);
                 return;
-            } else if (hash === '#terms') {
-                showPage('terms');
-                return;
-            } else if (hash === '#privacy') {
-                showPage('privacy');
-                return;
+            }
+            
+            if (hash && hash !== '#' && !validHashes.includes(hash) && !isPostHash) {
+                window.location.hash = '';
             }
             
             const pageFromURL = getPageFromURL();
