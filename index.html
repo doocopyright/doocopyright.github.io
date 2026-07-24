@@ -2234,74 +2234,9 @@
         // KHÔNG CẤM CHỤP MÀN HÌNH
 
         // ============================================================
-        // 1. ARTICLE DATA - 10 ARTICLES
+        // 1. ARTICLE DATA - 5 ARTICLES (ID 6, 7, 8, 9, 10)
         // ============================================================
         const articles = [{
-            id: 1,
-            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
-            date: 'JUNE 24, 2026',
-            author: 'DOO MEDIA GROUP',
-            image: 'https://cdn.discordapp.com/attachments/1526489800234762342/1529286253919600763/IMG_0762.jpg?ex=6a62b3cf&is=6a61624f&hm=cdc181f887cf90a0847e9f025f0d16e350b5ad2d02e1fd24490fe785b7982905&',
-            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
-            fullContent: `
-                <p><strong>This Content Right owner "DOO Media"</strong></p>
-                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
-                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
-                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
-            `
-        }, {
-            id: 2,
-            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
-            date: 'JUNE 24, 2026',
-            author: 'DOO MEDIA GROUP',
-            image: 'https://cdn.discordapp.com/attachments/1526489800234762342/1529286254338904235/IMG_0763.jpg?ex=6a62b3cf&is=6a61624f&hm=aaa828df2caf592e8b5f5244fd3fd751ba37a5da64d5bf782aa81fc0327a6c78&',
-            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
-            fullContent: `
-                <p><strong>This Content Right owner "DOO Media"</strong></p>
-                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
-                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
-                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
-            `
-        }, {
-            id: 3,
-            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
-            date: 'JUNE 24, 2026',
-            author: 'DOO MEDIA GROUP',
-            image: 'https://cdn.discordapp.com/attachments/1526489800234762342/1529286254766719107/IMG_0764.jpg?ex=6a62b3cf&is=6a61624f&hm=a0a47bd5434fd15acf495f82dadb759fbbb7b13f11bdd7774bfabba6761e824a&',
-            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
-            fullContent: `
-                <p><strong>This Content Right owner "DOO Media"</strong></p>
-                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
-                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
-                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
-            `
-        }, {
-            id: 4,
-            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
-            date: 'JUNE 24, 2026',
-            author: 'DOO MEDIA GROUP',
-            image: 'https://cdn.discordapp.com/attachments/1526489800234762342/1529286255253389503/IMG_0765.jpg?ex=6a62b3d0&is=6a616250&hm=32772a1a1ccdc0a8695f53232b208f2a45d2b479ef1309e4b397b772c93d8581&',
-            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
-            fullContent: `
-                <p><strong>This Content Right owner "DOO Media"</strong></p>
-                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
-                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
-                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
-            `
-        }, {
-            id: 5,
-            title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
-            date: 'JULY 23, 2026',
-            author: 'DOO MEDIA GROUP',
-            image: 'https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/536648059_742672195232373_5576765030471467695_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s1080x1080&_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=I6DCu-2OYC8Q7kNvwGvjJi0&_nc_oc=AdorsBTwE3AsAs5Xi9MnVyjz0GPVcKv8qhnECjnoWocmCqfPwcMisryq_dsRhiwZ3Ik&_nc_zt=23&_nc_ht=scontent-nrt1-1.xx&_nc_gid=ntDyCA0lo9q2uKqCW871iA&_nc_ss=7b2a8&oh=00_AQCAviUI885AWMKipm3pjrXyWlZ-pu0fQYIxRlSVtpwl2g&oe=6A67E93F',
-            excerpt: 'To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material...',
-            fullContent: `
-                <p><strong>This Content Right owner "DOO Media"</strong></p>
-                <p><strong>PUBLISHED: JUNE 24, 2026 | WRITTEN BY: DOO MEDIA GROUP</strong></p>
-                <p>LEGAL NOTICE OF COPYRIGHT INFRINGEMENT To Whom It May Concern, This Content Right owner, DOO Media, hereby notifies you of unauthorized use of our copyrighted material. We have identified that the infringing website is displaying our proprietary visual asset without authorization. Pursuant to global intellectual property regulations, we demand the immediate removal of the infringing content. This notice is sent on behalf of the content owner by DOO Media (doocopyright.github.io). Sincerely, DOO Media Intellectual Property Rights Protection Agent DOO Media</p>
-                <p>We are committed to protecting our intellectual property and will take all necessary measures to prevent infringement.</p>
-            `
-        }, {
             id: 6,
             title: 'LEGAL NOTICE OF COPYRIGHT INFRINGEMENT',
             date: 'JULY 23, 2026',
@@ -2346,7 +2281,7 @@
             title: '⚠️ NOTICE: UNAUTHORIZED IMAGE USE BY FACEBOOK PAGE "𝓒12 - 𝓕𝓸𝓻𝓮𝓿𝓮𝓻 𝓦𝓮 𝓢𝓱𝓲𝓷𝓮"',
             date: 'JULY 23, 2026',
             author: 'DOO MEDIA GROUP',
-            image: 'https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/654299182_122149728362977003_2349294599287080676_n.jpg?stp=dst-jpg_tt6&cstp=mx1152x2048&ctp=s1152x2048&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=H27EW9gkNiQQ7kNvwHFefiG&_nc_oc=AdosBOoXTfzeKSB0uuJRFg7AkD6l0EtjTfMF0L-Q6uTt1B3pDfvPXeebAtMRy7oY_dI&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=9azd9iBN5L_fh3_ELuogDg&_nc_ss=7b2a8&oh=00_AQCQD1E7SLZf2LjS6WuHx9j2H-oMLyJ5R-ajmGg7c6Bm5A&oe=6A685D45',
+            image: 'https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-6/750569946_122167361792977003_7310810492407351625_n.jpg?stp=dst-jpg_tt6&cstp=mx960x957&ctp=s960x957&_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=tZagTqyVMBwQ7kNvwGo7UwN&_nc_oc=Adp94TfWljRX8fILl_EsFcBzIMZht1eS2LuqqMcmWkOI6iEXV_b5IicMvV69brPcnHY&_nc_zt=23&_nc_ht=scontent-ams2-1.xx&_nc_gid=P86kBanYIGyXN3kEgH0T9w&_nc_ss=7a2a8&oh=00_AQBLWy7oOvQjdqe6cb4nQdiHNQjlnJoVHRtykIBUpyjQQg&oe=6A69DC1A',
             excerpt: '🚨 The Facebook page "𝓒12 - 𝓕𝓸𝓻𝓮𝓿𝓮𝓻 𝓦𝓮 𝓢𝓱𝓲𝓷𝓮" has been found using 4 of our copyrighted images without authorization...',
             fullContent: `
                 <div style="background:#fef3f3; border-left:4px solid #dc3545; padding:16px 20px; margin-bottom:24px; border-radius:4px;">
@@ -2369,7 +2304,7 @@
                 </p>
 
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:20px 0; background:#f8f9fa; padding:16px; border-radius:8px; border:1px solid #e5e5e5;">
-                    <img src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/654299182_122149728362977003_2349294599287080676_n.jpg?stp=dst-jpg_tt6&cstp=mx1152x2048&ctp=s1152x2048&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=H27EW9gkNiQQ7kNvwHFefiG&_nc_oc=AdosBOoXTfzeKSB0uuJRFg7AkD6l0EtjTfMF0L-Q6uTt1B3pDfvPXeebAtMRy7oY_dI&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=9azd9iBN5L_fh3_ELuogDg&_nc_ss=7b2a8&oh=00_AQCQD1E7SLZf2LjS6WuHx9j2H-oMLyJ5R-ajmGg7c6Bm5A&oe=6A685D45" alt="Infringing image 1" style="width:100%; border-radius:4px; border:1px solid #ddd;" />
+                    <img src="https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-6/750569946_122167361792977003_7310810492407351625_n.jpg?stp=dst-jpg_tt6&cstp=mx960x957&ctp=s960x957&_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=tZagTqyVMBwQ7kNvwGo7UwN&_nc_oc=Adp94TfWljRX8fILl_EsFcBzIMZht1eS2LuqqMcmWkOI6iEXV_b5IicMvV69brPcnHY&_nc_zt=23&_nc_ht=scontent-ams2-1.xx&_nc_gid=P86kBanYIGyXN3kEgH0T9w&_nc_ss=7a2a8&oh=00_AQBLWy7oOvQjdqe6cb4nQdiHNQjlnJoVHRtykIBUpyjQQg&oe=6A69DC1A" alt="Infringing image 1" style="width:100%; border-radius:4px; border:1px solid #ddd;" />
                     <img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/536281600_122106622862977003_449370272209999017_n.jpg?stp=dst-jpg_tt6&cstp=mx1055x1068&ctp=s960x960&_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=tAqx_hwsfrUQ7kNvwFYEN-A&_nc_oc=AdpMIBjlh13NetVO-8xBli2AVJOI4oh7mzHWR0p2MjbtgXrmj3mCJddObfPTgmA5rLc&_nc_zt=23&_nc_ht=scontent-nrt1-1.xx&_nc_gid=3pmMubX4mxr1b6dg7FH5ww&_nc_ss=7b2a8&oh=00_AQCXC7zU_Fbhh06QQHe2Wx56SwiQFDwxPkFMujUO_6TjjA&oe=6A67BAAD" alt="Infringing image 2" style="width:100%; border-radius:4px; border:1px solid #ddd;" />
                     <img src="https://scontent-nrt6-1.xx.fbcdn.net/v/t39.30808-6/586319718_122130704840977003_6095996905266296445_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1920&ctp=s1080x1920&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Gl6ybdwaGccQ7kNvwGSDoRr&_nc_oc=AdqSJOCQy3l_Q3VtYQxgoGM-vYfmrHwrB_Q3qI3_r6Kz9zpSAL2n2yUDpBIf8htS-Nc&_nc_zt=23&_nc_ht=scontent-nrt6-1.xx&_nc_gid=1jEC7PYcW719hExLenQsow&_nc_ss=7b2a8&oh=00_AQAv1DKBXYO_kahB-WZroanOxd9PMqaNd_pbi6i3os6u1g&oe=6A67DCA6" alt="Infringing image 3" style="width:100%; border-radius:4px; border:1px solid #ddd;" />
                     <img src="https://scontent-nrt6-1.xx.fbcdn.net/v/t39.30808-6/536283062_122106147908977003_9162796945161195610_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1902&ctp=s1440x1902&_nc_cat=106&ccb=1-7&_nc_sid=f727a1&_nc_ohc=nv23w1Whn7wQ7kNvwGjj5zo&_nc_oc=Adp2n6Xsp_b0BL6JxulWBLkBcY2ppzWZ22iyVaPiemx-bT_AIBaffUyawwvIydkUJVg&_nc_zt=23&_nc_ht=scontent-nrt6-1.xx&_nc_gid=oQM9R1KPKaiE2pABNCt0QA&_nc_ss=7b2a8&oh=00_AQBiDtblCdnfR1YtyL16BXQYCKB_c_GBouk3PxePhhc8Vw&oe=6A67EA0B" alt="Infringing image 4" style="width:100%; border-radius:4px; border:1px solid #ddd;" />
